@@ -24,3 +24,19 @@ def index(request):
         'index.html',
         context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_authors':num_authors,'num_genre':num_genre},
     )
+
+
+from django.views import generic
+
+class BookListView(generic.ListView):
+    model = Book
+    template_name = "book_list.html"
+    paginate_by = 10
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = "book_detail.html"
+
+
+
