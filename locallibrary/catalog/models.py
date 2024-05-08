@@ -36,6 +36,9 @@ class Book(models.Model):
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
 
+    class Meta:
+        ordering = ["author"]
+
     def __str__(self):
         """
         String for representing the Model object.
@@ -103,6 +106,9 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
+
+    class Meta:
+        ordering = ["first_name"]
 
     def get_absolute_url(self):
         """
