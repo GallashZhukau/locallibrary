@@ -24,8 +24,14 @@
               <li><a href="{% url 'index' %}">Home</a></li>
               <li><a href="{% url 'books' %}">All books</a></li>
               <li><a href="{% url 'authors' %}">All authors</a></li>
-              <li><a href="{% url 'login' %}">login</a></li>
-              <li><a href="{% url 'logout' %}">logout</a></li>
+              <form action="{% url 'login' %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit">Login</button>
+               </form>
+              <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit">Log out</button>
+               </form>
             </ul>
           {% endblock %}
         </div>
